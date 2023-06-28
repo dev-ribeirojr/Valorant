@@ -18,6 +18,8 @@ export const HeaderContainer = styled.header`
     left: 0;
     top: 0;
     right: 0;
+
+    z-index: 1000;
 `;
 export const Content = styled.div`
     display: flex;

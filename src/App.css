@@ -14,3 +14,15 @@
 button {
     cursor: pointer;
 }
+
+html::-webkit-scrollbar{
+    width: 10px;
+}
+html::-webkit-scrollbar-track{
+    background-color: #121212;
+}
+html::-webkit-scrollbar-thumb{
+    height: 20px;
+    background-color: #FF4655;
+    border-radius: 10px;
+}
