@@ -9,7 +9,7 @@ import { LogoValorant } from "../icons/LogoValorant";
 
 export default function VideoHeroi() {
     return (
-        <Container>
+        <Container id='home'>
             <Video autoPlay muted loop>
                 <source src={GameVideo} type='video/mp4' />
             </Video>

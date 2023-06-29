@@ -1,0 +1,42 @@
+.containerMapas {
+    padding: 1.6rem;
+    max-width: 1300px;
+    overflow: hidden;
+    cursor: grab;
+    margin: 1.6rem;
+    margin: 0 auto;
+}
+
+.containerMapas .content {
+    display: flex;
+    gap: 1.6rem;
+
+}
+
+.containerMapas .content .card {
+    position: relative;
+    box-shadow: 0 0 10px #000000a2;
+}
+
+.containerMapas .content .card:hover h1 {
+    display: block;
+}
+
+.containerMapas .content .card img {
+    max-width: 500px;
+    height: 100%;
+    pointer-events: none;
+}
+
+.containerMapas .content .card h1 {
+    display: none;
+
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #121212;
+    font-size: 2rem;
+    color: #FFF;
+    text-align: center;
+}

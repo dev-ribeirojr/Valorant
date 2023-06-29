@@ -21,11 +21,11 @@ export default function Header() {
             </Content>
             <Content>
                 <Navegar>
-                    <a href="#">AGENTES</a>
+                    <a href="#maps">MAPAS</a>
+                    {largura <= 767 && <Separador />}
+                    <a href="#agentes">AGENTES</a>
                     {largura <= 767 && <Separador />}
                     <a href="#">ARMAS</a>
-                    {largura <= 767 && <Separador />}
-                    <a href="#">MAPAS</a>
                 </Navegar>
                 <Button>
                     JOGUE AGORA
