@@ -15,7 +15,7 @@ export default function Mapas() {
 
     useEffect(() => {
         async function loadMaps() {
-            const response = await api.get('maps');
+            const response = await api.get('maps?language=pt-BR');
             setMaps(response.data.data);
         }
         loadMaps();

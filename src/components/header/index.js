@@ -43,7 +43,7 @@ export default function Header({ status }) {
 
                     :
                     <Navegar>
-                        <a href="#">ARMAS</a>
+                        <a href="#armas">ARMAS</a>
                         {largura <= 767 && <Separador />}
                         <a href="#maps">MAPAS</a>
                         {largura <= 767 && <Separador />}

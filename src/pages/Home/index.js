@@ -2,6 +2,7 @@ import Video from "../../components/video";
 import Mapas from "../../components/mapas";
 import Agentes from "../../components/agentes";
 import Header from "../../components/header";
+import Armas from '../../components/armas';
 
 import {
     Titulo,
@@ -29,7 +30,13 @@ export default function Home() {
                 </p>
             </Sobre>
             <Agentes />
-
+            <Sobre id="armas">
+                <Titulo>ARMAS</Titulo>
+                <p>
+                    As armas do Valorant podem ser divididas em sete categorias: pistolas, escopetas, submetralhadoras, rifles, rifles de precisão, metralhadoras pesadas e facas, são elas..
+                </p>
+            </Sobre>
+            <Armas />
         </div>
     )
 }

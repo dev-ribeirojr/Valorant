@@ -15,7 +15,7 @@ export default function CallOuts({ uuid }) {
 
     useEffect(() => {
         async function loadCalls() {
-            const response = await api.get(`maps/${uuid}`);
+            const response = await api.get(`maps/${uuid}?language=pt-BR`);
             setCalls(response?.data.data.callouts);
         }
         loadCalls();
