@@ -1,6 +1,7 @@
 import styled from "styled-components";
 const corPrimaria = '#0F1823';
 const corSecundaria = '#ECE8E1';
+const corSecundariaSombra = '#ece8e171';
 
 export const ContentCall = styled.section`
     max-width: 1300px;
@@ -27,8 +28,13 @@ export const Call = styled.section`
 
     padding: 1rem;
     background-color: ${corPrimaria};
-    box-shadow: 0 0 10px ${corSecundaria};
+    box-shadow: 0 0 10px ${corSecundariaSombra};
     border-radius: 8px;
+
+    :hover{
+        background-color: ${corSecundaria};
+        color: ${corPrimaria};
+    }
 `;
 export const Name = styled.h2`
 
