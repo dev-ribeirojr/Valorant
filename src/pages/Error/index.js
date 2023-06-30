@@ -26,8 +26,6 @@ export default function Error() {
 
     }, []);
 
-    console.log(agentEscolido)
-
     return (
         <Container>
             <Header status={true} />
