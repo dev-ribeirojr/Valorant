@@ -1,7 +1,6 @@
 import styled from "styled-components";
 
 export const Container = styled.section`
-
     display: grid;
     grid-template-columns: 1fr;
     gap: 1.6rem;
@@ -9,11 +8,11 @@ export const Container = styled.section`
     margin: 0 auto;
     padding: 0 1.6rem;
 
-    @media screen and (min-width: 767px){
+    @media (min-width: 767px){
         max-width: 1300px;
         grid-template-columns: repeat(2, 1fr);
     }
-    @media screen and (min-width: 1024px){
+    @media (min-width: 1024px){
         grid-template-columns: repeat(3, 1fr);
     }
 `;
@@ -43,9 +42,6 @@ export const Card = styled.section`
 
         h1{
             display: flex;
-            background-color: ${props => `#${props.corUm}`};
-            color: ${props => `#${props.corQuatro}`};
-
         }
         img{
             transition: ease-in;
@@ -66,7 +62,11 @@ export const Fundo = styled.section`
 
 export const Name = styled.h1`
 
+    background-color: ${props => `#${props.corUm}`};
+    color: ${props => `#${props.corQuatro}`};
+
     display: none;
+
     align-items: center;
     justify-content: center;
 
@@ -79,6 +79,9 @@ export const Name = styled.h1`
     right: 0;
     left: 0;
 
+    @media (max-width: 1024px){
+        display: flex;
+    }
     
 `;
 

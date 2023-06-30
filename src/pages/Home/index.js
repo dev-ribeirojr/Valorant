@@ -1,6 +1,7 @@
 import Video from "../../components/video";
 import Mapas from "../../components/mapas";
 import Agentes from "../../components/agentes";
+import Header from "../../components/header";
 
 import {
     Titulo,
@@ -10,6 +11,7 @@ import {
 export default function Home() {
     return (
         <div>
+            <Header status={false} />
             <Video />
             <Sobre id="maps">
                 <Titulo>MAPAS</Titulo>

@@ -1,7 +1,7 @@
 import './mapas.css';
 import api from '../../services/api';
 import { motion } from 'framer-motion';
-
+import { useNavigate } from 'react-router-dom';
 import { useState, useEffect, useRef } from 'react';
 
 export default function Mapas() {
@@ -9,17 +9,28 @@ export default function Mapas() {
     const [maps, setMaps] = useState([]);
 
     const carousel = useRef();
-    const [width, setWidth] = useState(0);
+    const [width, setWidth] = useState(null);
+    const navigate = useNavigate();
+
 
     useEffect(() => {
         async function loadMaps() {
             const response = await api.get('maps');
             setMaps(response.data.data);
-            setWidth(carousel.current?.scrollWidth - carousel.current?.offsetWidth)
-            console.log(response)
         }
-        loadMaps()
+        loadMaps();
+
+        async function loadWidth() {
+            await loadMaps()
+            setWidth(carousel.current?.scrollWidth - carousel.current?.offsetWidth);
+        }
+        loadWidth();
+
     }, [])
+
+    function navegar(props){
+        navigate(`maps/${props}`, {uuid: props})
+    }
 
     return (
         <motion.section
@@ -34,12 +45,14 @@ export default function Mapas() {
             >
                 {maps.map((map) => (
 
-                    <motion.section className='card' key={map.uuid}>
-                        <img src={map.splash} />
+                    <motion.section
+                        className='card'
+                        key={map.uuid}
+                        onClick={() => navegar(map.uuid)}>
                         <h1>
                             {map.displayName}
                         </h1>
-
+                        <img src={map.splash} />
                     </motion.section>
                 ))}
             </motion.section>

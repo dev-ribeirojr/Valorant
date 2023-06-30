@@ -9,20 +9,28 @@
     font-family: 'Kanit', sans-serif;
 }
 
+body {
+    background-color: #0F1823;
+    color: #FFF;
+}
+
 button {
     cursor: pointer;
 }
-html{
+
+html {
     scroll-behavior: smooth;
 }
 
-html::-webkit-scrollbar{
+html::-webkit-scrollbar {
     width: 10px;
 }
-html::-webkit-scrollbar-track{
+
+html::-webkit-scrollbar-track {
     background-color: #121212;
 }
-html::-webkit-scrollbar-thumb{
+
+html::-webkit-scrollbar-thumb {
     height: 20px;
     background-color: #FF4655;
     border-radius: 10px;

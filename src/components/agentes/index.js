@@ -21,11 +21,10 @@ export default function Agentes() {
         loadAgentes()
     }, []);
 
-    console.log(agentes)
     return (
         <Container>
             {agentes.map((perfil) => (
-                <Link key={perfil.uuid}>
+                <Link to={`/agents/${perfil.uuid}`} key={perfil.uuid}>
                     <Fundo
                         corUm={perfil.backgroundGradientColors[0]}
                         corDois={perfil.backgroundGradientColors[1]}
@@ -35,11 +34,13 @@ export default function Agentes() {
                         <Card
                             background={perfil.background}
                             corUm={perfil.backgroundGradientColors[0]}
-                            corQuatro={perfil.backgroundGradientColors[3]}
                         >
                             <img src={perfil.bustPortrait} />
-                            <Name>
-                                {perfil.developerName}
+                            <Name
+                                corUm={perfil.backgroundGradientColors[0]}
+                                corQuatro={perfil.backgroundGradientColors[3]}
+                            >
+                                {perfil.displayName}
                             </Name>
                         </Card>
                     </Fundo>
