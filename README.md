@@ -3,24 +3,24 @@
 Desáfio 07 dos Desáfios Codelândia criado por [iuricode 🔗](iuricode.com) "OBS: acrescentei minhas ideias em cima do desáfio".
 
  <p>
-    <img  src='./src/assets/imgReadme/inicio.png' style="width: 500px" />
-  <img  src='./src/assets/imgReadme/maps.png' style="width: 500px" />
+    <img  src='./src/assets/imgReadme/inicio.png' style="width: 400px" />
+  <img  src='./src/assets/imgReadme/maps.png' style="width: 400px" />
  </p>
   <p>
-    <img  src='./src/assets/imgReadme/maps-detalhe.png' style="width: 500px"/>
-  <img  src='./src/assets/imgReadme/maps-detalhe01.png' style="width: 500px"/>
+    <img  src='./src/assets/imgReadme/maps-detalhe.png' style="width: 400px"/>
+  <img  src='./src/assets/imgReadme/maps-detalhe01.png' style="width: 400px"/>
   </p>
  <p>
-    <img  src='./src/assets/imgReadme/agentes.png' style="width: 500px" />
-  <img  src='./src/assets/imgReadme/agente-perfil.png' style="width: 500px"/>
+    <img  src='./src/assets/imgReadme/agentes.png' style="width: 400px" />
+  <img  src='./src/assets/imgReadme/agente-perfil.png' style="width: 400px"/>
  </p>
  <p>
-    <img  src='./src/assets/imgReadme/armas.png' style="width: 500px" />
-  <img  src='./src/assets/imgReadme/skins-arma.png' style="width: 500px" />
+    <img  src='./src/assets/imgReadme/armas.png' style="width: 400px" />
+  <img  src='./src/assets/imgReadme/skins-arma.png' style="width: 400px" />
  </p>
  <p>
-   <img  src='./src/assets/imgReadme/not-found.png' style="width: 500px"/>
-  <img  src='./src/assets/imgReadme/not-found01.png' style="width: 500px"/>
+   <img  src='./src/assets/imgReadme/not-found.png' style="width: 400px"/>
+  <img  src='./src/assets/imgReadme/not-found01.png' style="width: 400px"/>
  </p>
 
 ## Ferramentas Utilizadas
