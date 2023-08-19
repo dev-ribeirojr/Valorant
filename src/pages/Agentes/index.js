@@ -61,7 +61,11 @@ export default function Agentes() {
                 <ContentImg>
                     <Titulo>//Carregando...</Titulo>
                 </ContentImg>
-                <ContainerHabilidades>
+                <ContainerHabilidades
+                    style={{
+                        justifyContent: 'center'
+                    }}
+                >
                     <Loading>
                         <BiLoaderCircle size={25} color="#030F3B" />
                     </Loading>
