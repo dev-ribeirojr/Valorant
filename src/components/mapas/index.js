@@ -1,17 +1,24 @@
-import './mapas.css';
-import api from '../../services/api';
-import { motion } from 'framer-motion';
-import { useNavigate } from 'react-router-dom';
 import { useState, useEffect, useRef } from 'react';
+import './mapas.css';
+
+import api from '../../services/api';
+
+import { useNavigate } from 'react-router-dom';
+
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/css';
+import 'swiper/css/pagination';
+
+import { Pagination } from 'swiper/modules';
+{/**
+ motion estava bugando ao fazer o slide, alteração feita utilizando o swiper
+ @author Pablo Alteração do slide  */}
 
 export default function Mapas() {
 
     const [maps, setMaps] = useState([]);
-
-    const carousel = useRef();
-    const [width, setWidth] = useState(null);
+    const [cards, setCards] = useState(null)
     const navigate = useNavigate();
-
 
     useEffect(() => {
         async function loadMaps() {
@@ -19,43 +26,52 @@ export default function Mapas() {
             setMaps(response.data.data);
         }
         loadMaps();
-
-        async function loadWidth() {
-            await loadMaps()
-            setWidth(carousel.current?.scrollWidth - carousel.current?.offsetWidth);
+        function cardsNum() {
+            if (window.innerWidth > 1024) {
+                setCards(3)
+            } else if (window.innerWidth > 768) {
+                setCards(2)
+            } else {
+                setCards(1)
+            }
         }
-        loadWidth();
-
+        cardsNum()
     }, [])
 
-    function navegar(props){
-        navigate(`maps/${props}`, {uuid: props})
+    function navegar(props) {
+        navigate(`maps/${props}`, { uuid: props })
+    }
+
+    document.body.onresize = () => {
+        if (window.innerWidth > 1024) {
+            setCards(3)
+        } else if (window.innerWidth > 768) {
+            setCards(2)
+        } else {
+            setCards(1)
+        }
     }
 
     return (
-        <motion.section
+        <Swiper
             className='containerMapas'
-            whileTap={{ cursor: "grabbing" }}
+            slidesPerView={cards}
+            pagination={{
+                clickable: true,
+            }}
+            modules={[Pagination]}
         >
-            <motion.section
-                ref={carousel}
-                className='content'
-                drag='x'
-                dragConstraints={{ right: 0, left: -width }}
-            >
-                {maps.map((map) => (
-
-                    <motion.section
-                        className='card'
-                        key={map.uuid}
-                        onClick={() => navegar(map.uuid)}>
-                        <h1>
-                            {map.displayName}
-                        </h1>
-                        <img src={map.splash} />
-                    </motion.section>
-                ))}
-            </motion.section>
-        </motion.section>
+            {maps.map((map) => (
+                <SwiperSlide
+                    className='card'
+                    key={map.uuid}
+                    onClick={() => navegar(map.uuid)}>
+                    <h1>
+                        {map.displayName}
+                    </h1>
+                    <img src={map.splash} />
+                </SwiperSlide>
+            ))}
+        </Swiper>
     )
 }

@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
-import api from "../../services/api";
 import { useParams } from "react-router-dom";
+
+import api from "../../services/api";
 import Header from "../../components/header";
 
 import {

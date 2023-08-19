@@ -1,3 +1,9 @@
+import { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
+import api from "../../services/api";
+
+// components
+import Header from '../../components/header/index.js';
 import {
     Container,
     Content,
@@ -11,11 +17,7 @@ import {
     ContentHabilidades,
     ContainerHabilidades
 } from './styles.js';
-import Header from '../../components/header/index.js';
 
-import { useParams, useNavigate } from "react-router-dom";
-import { useState, useEffect } from "react";
-import api from "../../services/api";
 
 export default function Agentes() {
 
