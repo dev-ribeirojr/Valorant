@@ -14,7 +14,7 @@
 
 .containerMapas .card {
     width: 100%;
-    padding: 1em;
+    padding: 0 1em;
 
     display: flex;
     flex-direction: column;
@@ -34,6 +34,13 @@
 
     text-align: center;
     background-color: #000;
+    display: none;
+
+    transition: all 0.3s;
+}
+
+.containerMapas .card:hover h1 {
+    display: block;
 }
 
 .containerMapas .card img {
@@ -43,4 +50,8 @@
 }
 
 
-@media screen and (max-width: 768px) {}
+@media screen and (max-width: 768px) {
+    .containerMapas .card h1 {
+        display: block;
+    }
+}

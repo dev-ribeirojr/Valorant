@@ -38,13 +38,10 @@ export const Content = styled.section`
 `;
 export const ContentRepetido = styled.section`
     display: none;
-
     background-color: ${corSecundaria};
     color: ${corPrimaria};
 
     width: 100%;
-    padding: 1.6rem 1.6rem 0 1.6rem;
-
     p{
         max-width: 650px;
     }
@@ -91,6 +88,9 @@ export const ContainerHabilidades = styled.section`
     padding: 1.6rem;
     background-color: ${corSecundaria};
     color: ${corPrimaria};
+    
+    display: flex;
+    align-items: center;
 `;
 export const ContentHabilidades = styled.section`
     @media (min-width: 1300px){

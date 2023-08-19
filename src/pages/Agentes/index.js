@@ -18,6 +18,11 @@ import {
     ContainerHabilidades
 } from './styles.js';
 
+import { Loading } from "../../components/styles/styles";
+
+//icons
+import { BiLoaderCircle } from "react-icons/bi";
+
 
 export default function Agentes() {
 
@@ -26,17 +31,44 @@ export default function Agentes() {
     const [funcao, setFuncao] = useState([]);
     const [habilidades, setHabilidades] = useState([]);
 
+    const [loading, setLoading] = useState(true)
+
     useEffect(() => {
 
         async function loadPerfil() {
-            const response = await api.get(`agents/${uuid}?language=pt-BR`);
-            setPersonagem(response?.data.data);
-            setFuncao(response?.data.data.role);
-            setHabilidades(response?.data.data.abilities);
+            const response = await api.get(`agents/${uuid}?language=pt-BR`)
+                .then((doc) => {
+
+                    setPersonagem(doc.data.data);
+                    setFuncao(doc.data.data.role);
+                    setHabilidades(doc.data.data.abilities);
+                    setLoading(false)
+                })
+                .catch((error) => {
+                    console.log(error)
+                    setLoading(false)
+                })
         }
 
         loadPerfil();
     }, [])
+
+    if (loading) {
+
+        return (
+            <Container>
+                <Header status={true} />
+                <ContentImg>
+                    <Titulo>//Carregando...</Titulo>
+                </ContentImg>
+                <ContainerHabilidades>
+                    <Loading>
+                        <BiLoaderCircle size={25} color="#030F3B" />
+                    </Loading>
+                </ContainerHabilidades>
+            </Container>
+        )
+    }
 
     return (
         <Container>
@@ -71,25 +103,26 @@ export default function Agentes() {
                     </Description>
                 </Content>
             </ContentImg>
-            <ContentRepetido
-                visible='none'
-            >
-                <Titulo>// FUNÇÃO</Titulo>
-                <Name
-                    align='start'
-                >
-                    {funcao.displayName}
-                </Name>
-                <Description>
-                    {funcao.description}
-                </Description>
-            </ContentRepetido>
+
 
             <ContainerHabilidades>
                 <Content style={{
                     maxWidth: 1300,
                     margin: 'auto'
                 }}>
+                    <ContentRepetido
+                        visible='none'
+                    >
+                        <Titulo>// FUNÇÃO</Titulo>
+                        <Name
+                            align='start'
+                        >
+                            {funcao.displayName}
+                        </Name>
+                        <Description>
+                            {funcao.description}
+                        </Description>
+                    </ContentRepetido>
                     <Name>
                         Habilidades
                     </Name>

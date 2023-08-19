@@ -30,9 +30,13 @@ export const Content = styled.div`
     svg{
         cursor: pointer;
         padding: 4px;
+        path{
+            transition: all 0.3s;
+        }
     }
     svg:hover{
         path{
+            
             fill: ${corPrimaria};
         }
     }  
@@ -48,7 +52,7 @@ export const Button = styled.button`
     width: 7rem;
     border-radius: 1rem;
     font-weight: bold;
-
+    transition: all 0.3s;
     &:hover{
         background: linear-gradient(45deg, ${corSecundaria}, ${corPrimaria});
         color: #FFF;
@@ -70,6 +74,7 @@ export const Navegar = styled.nav`
         box-shadow: 0px 2px 10px #0000007a;
     }
     a{
+        transition: all 0.3s;
         color: #FFF;
         padding: 0.5rem;
         &:hover{

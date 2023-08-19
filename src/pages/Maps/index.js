@@ -1,32 +1,65 @@
 import { useState, useEffect } from 'react';
-import api from '../../services/api';
 import { useParams, Link } from 'react-router-dom';
-import Header from '../../components/header';
-import CallOuts from '../../components/callOuts';
+
 import {
-    Container,
-    Mapa,
-    ContentMapa,
-    Titulo,
-    Cordenadas,
-    Content,
-    Descricao,
-    Texto
+    Container, Mapa, ContentMapa,
+    Titulo, Cordenadas, Content,
+    Descricao, Texto
 } from './styles';
+
+import Header from '../../components/header';
+import CallOuts from './components/callOuts';
+
+import api from '../../services/api';
+import { Loading } from '../../components/styles/styles';
+
+
+//icons
+import { BiLoaderCircle } from "react-icons/bi";
 
 
 export default function Maps() {
 
     const { uuid } = useParams();
     const [mapa, setMapa] = useState([]);
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         async function loadMaps() {
-            const response = await api.get(`maps/${uuid}`);
-            setMapa(response?.data.data);
+            const response = await api.get(`maps/${uuid}`)
+                .then((doc) => {
+                    setMapa(doc.data.data);
+                    setLoading(false)
+                })
+                .catch((error) => {
+                    console.log(error)
+                    setLoading(false)
+                })
+
         }
         loadMaps();
     }, [])
+
+    if (loading) {
+        return (
+            <Container
+                style={{
+                    height: '100vh',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center'
+                }}
+            >
+                <Header status={true} />
+                <Titulo>
+                    Carregando...
+                </Titulo>
+                <Loading>
+                    <BiLoaderCircle size={25} color='#FFF' />
+                </Loading>
+            </Container>
+        )
+    }
 
     if (mapa.callouts == null || mapa.displayIcon == null) {
         return (

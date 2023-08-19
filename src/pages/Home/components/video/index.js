@@ -1,11 +1,6 @@
-import {
-    Container,
-    Content,
-    Video,
-    Button
-} from './styles';
-import GameVideo from '../../assets/video-full.mp4';
-import { LogoValorant } from "../icons/LogoValorant";
+import { Container, Content, Video, Button } from './styles';
+import GameVideo from "../../../../assets/video-full.mp4";
+import { LogoValorant } from "../../../../components/icons/LogoValorant";
 
 export default function VideoHeroi() {
     return (

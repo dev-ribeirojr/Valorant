@@ -1,8 +1,9 @@
-import Video from "../../components/video";
-import Mapas from "../../components/mapas";
-import Agentes from "../../components/agentes";
 import Header from "../../components/header";
-import Armas from '../../components/armas';
+
+import Armas from './components/armas'
+import Agentes from "./components/agentes";
+import Mapas from "./components/mapas";
+import Video from "./components/video";
 
 import {
     Titulo,

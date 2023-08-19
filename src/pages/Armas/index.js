@@ -16,6 +16,11 @@ import {
     ContainerImg
 } from './styles';
 
+import { Loading } from "../../components/styles/styles";
+
+//icons
+import { BiLoaderCircle } from "react-icons/bi";
+
 export default function Armas() {
 
     const { uuid } = useParams();
@@ -23,17 +28,46 @@ export default function Armas() {
     const [arm, setArm] = useState([]);
     const [skins, setSkins] = useState([]);
 
+    const [loading, setLoading] = useState(true)
+
     useEffect(() => {
 
         async function loadArmas() {
 
-            const response = await api.get(`weapons/${uuid}`);
-            setArm(response?.data.data);
-            setSkins(response?.data.data.skins);
+            const response = await api.get(`weapons/${uuid}`)
+                .then((doc) => {
+                    setArm(doc.data.data);
+                    setSkins(doc.data.data.skins);
+                    setLoading(false)
+                })
+                .catch((error) => {
+                    console.log(error)
+                    setLoading(false)
+                })
         }
         loadArmas();
 
     }, [])
+
+    if (loading) {
+        return (
+            <Container>
+                <Header status={true} />
+                <ContentArma>
+                    <Card>
+                        <Loading style={{
+                            flexDirection: 'column'
+                        }}>
+                            <Titulo
+                                style={{ margin: 0 }}
+                            >Carregando...</Titulo>
+                            <BiLoaderCircle size={25} color="#FFF" />
+                        </Loading>
+                    </Card>
+                </ContentArma>
+            </Container>
+        )
+    }
 
     return (
         <Container>
